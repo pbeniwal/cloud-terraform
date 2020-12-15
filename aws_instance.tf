@@ -2,16 +2,15 @@ provider aws {
   region = "us-east-1"
 }
 
-terraform {
+/*terraform {
   backend "s3" {
     bucket = "pbackend"
     key    = "remote.tfstate"
     region = "us-east-1"
   }
-}
+}*/
 
-/*
-
+  /*
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -32,7 +31,8 @@ data "aws_ami" "ubuntu" {
 output "ami_id" {
   value = data.aws_ami.ubuntu.id
 }
-
+*/
+  
 resource "aws_eip" "lb" {
   vpc      = true
 }
@@ -42,15 +42,7 @@ output "eip" {
   value = aws_eip.lb.public_ip
 }
 
-
-resource "aws_s3_bucket" "mys3" {
-  bucket = "helloedureka"
-}
-
-output "mys3bucket" {
-  value = aws_s3_bucket.mys3.bucket_domain_name
-}
-*/
+/*
 
 resource "aws_instance" "myec2" {
    //ami = data.aws_ami.ubuntu.id
